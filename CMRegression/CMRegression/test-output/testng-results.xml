@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="CustommadeSuite" duration-ms="13144" started-at="2014-05-27T08:32:26Z" finished-at="2014-05-27T08:32:39Z">
+    <groups>
+    </groups>
+    <test name="Firefox" duration-ms="13144" started-at="2014-05-27T08:32:26Z" finished-at="2014-05-27T08:32:39Z">
+      <class name="com.custommade.tests.SampleTest">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.custommade.tests.SampleTest@426295eb]" name="setUp" is-config="true" duration-ms="11410" started-at="2014-05-27T14:02:26Z" finished-at="2014-05-27T14:02:37Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[http://localhost:5555/wd/hub]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[testera777]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[ef50b251-ed9a-4408-943d-32ae1fc272e0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Windows 2008]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[19]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[@ondemand.saucelabs.com:80/wd/hub]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[CM Regression Suite (Firefox)]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[receipientMailid]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[buildNumber]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="sampleTest()[pri:0, instance:com.custommade.tests.SampleTest@426295eb]" name="sampleTest" duration-ms="1409" started-at="2014-05-27T14:02:37Z" finished-at="2014-05-27T14:02:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sampleTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.custommade.tests.SampleTest@426295eb]" name="tearDown" is-config="true" duration-ms="310" started-at="2014-05-27T14:02:38Z" finished-at="2014-05-27T14:02:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.custommade.tests.SampleTest -->
+    </test> <!-- Firefox -->
+  </suite> <!-- CustommadeSuite -->
+</testng-results>

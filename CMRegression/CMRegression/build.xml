@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="testng-sample-ant-run" default="run-sendemailclass" basedir=".">
+
+	<!-- *********************** Usage ******************************
+    ***************** ant run-test -Denv= www-test| uat | www *******
+    **************************************************************-->
+
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="src.dir" value="${basedir}/src/com/custommade" />
+	<property name="lib.dir" value="${basedir}/lib" />
+	<property name="reports.dir" value="${basedir}/report"/>
+	<property name="test" value="*" />
+	<property name="test.output" value="test-output" />
+	<property name="test.report" value="test-report" />
+	<property name="xml" value="testng.xml"/>
+	<property name="receipientMailid" value="anokh@qburst.com"/>
+	<property name="buildNumber" value="defaultbuild"/>
+
+	<fileset id="compile.libs" dir="${lib.dir}">
+		<include name="testng.jar" />
+		<include name="selenium-server-2.31.0.jar" />
+		<include name="selenium-server-standalone-2.31.0.jar" />
+		<include name="jxl.jar" />
+		<include name="mail.jar" />
+		<include name="mysql-connector-java-3.1.12.jar" />
+	</fileset>
+
+	<path id="classpath">
+		<pathelement location="${build.dir}/classes" />
+		<fileset refid="compile.libs" />
+	</path>
+
+	<!-- ====================== Defines the testng task========================== -->
+	<taskdef name="testng" classpathref="classpath" classname="com.beust.testng.TestNGAntTask" />
+
+	<!-- =============Initialise the required folder structure Target =========== -->
+	<target name="init" depends="clean" description="Create build directories">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${reports.dir}" />
+		<mkdir dir="${build.dir}/classes" />
+		<mkdir dir="${build.dir}/lib" />
+		<mkdir dir="${test.output}" />
+	</target>
+
+	<!-- ==================== Clean the folders=============================== -->
+	<target name="clean" description="Delete build and stage directories">
+		<delete dir="${build.dir}" />
+		<delete dir="${reports.dir}" />
+		<delete dir="${test.output}" />
+	</target>
+
+	<!-- ==================== Compiles the test files========================== -->
+	<target name="compile" depends="init" description="Compile Java sources">
+		<javac includeantruntime="false" deprecation="true" destdir="${build.dir}/classes" srcdir="${src.dir}" executable="javac" debug="true" verbose="false" fork="true" memoryinitialsize="256M" memorymaximumsize="512M" classpathref="classpath">
+
+			<include name="**/${test}.java" />
+		</javac>
+	</target>
+
+
+	<!-- ==================== Runs the tests using testng========================== -->
+	<target name="run-test" description="All the tests" depends="compile">
+		<testng classpathref="classpath" outputDir="${test.output}" haltOnFailure="false" verbose="2" delegateCommandSystemProperties="true">
+			<xmlfileset dir="${basedir}" includes="${xml}" />
+			<!-- <sysproperty key="receipientMailid" value="${receipientMailid}"/>  -->
+		</testng>
+	</target >
+	
+	<!-- ==================== Runs the class for sending the email========================== -->
+    <target name="run-sendemailclass" depends="init,compile,run-test">
+        <java classname = "com.custommade.utility.EmailUtility" classpathref="classpath">
+            </java>
+    </target>
+	
+</project>

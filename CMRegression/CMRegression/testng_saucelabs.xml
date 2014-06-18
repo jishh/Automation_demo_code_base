@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="CustommadeSuite" parallel="tests" thread-count="10">
+	<listeners>
+		<listener class-name="com.custommade.listener.CustomMadeListener" />
+	</listeners>
+	<tests> 
+	
+	<test name="Firefox" preserve-order="true">
+		<parameter name="browser" value="firefox" />		
+		<parameter name="username" value="testera777"/>
+		<parameter name="key" value="ef50b251-ed9a-4408-943d-32ae1fc272e0" />
+		<parameter name="os" value="Windows 2008" />
+		<parameter name="browserVersion" value="19" />
+		<parameter name="sauceLabsUrl" value="@ondemand.saucelabs.com:80/wd/hub" />
+		<parameter name="name" value="CM Regression Suite (Firefox)" />
+		<classes>		
+			<class name="com.custommade.tests.SampleTest" />
+<!-- 			<class name="com.custommade.tests.StartAProject" />
+			<class name="com.custommade.tests.GetItCustomMade" />
+			<class name="com.custommade.tests.WorkWithThisMaker" /> -->
+		</classes>
+	</test>
+	
+	<!-- This is to run the test in chrome browser. -->
+	
+<!-- 	<test name="Chrome" preserve-order="true">
+		<parameter name="browser" value="chrome" />
+		<parameter name="username" value="testera777"/>
+		<parameter name="key" value="ef50b251-ed9a-4408-943d-32ae1fc272e0" />
+		<parameter name="os" value="Windows 2003" />
+		<parameter name="browserVersion" value="" />
+		<parameter name="sauceLabsUrl" value="@ondemand.saucelabs.com:80/wd/hub" />
+		<parameter name="name" value="CM Regression Suite (Chrome)" />
+		<classes>
+			<class name="com.custommade.tests.LoginRegistration" />
+			<class name="com.custommade.tests.StartAProject" />
+			<class name="com.custommade.tests.GetItCustomMade" />
+			<class name="com.custommade.tests.WorkWithThisMaker" />
+		</classes>
+	</test> -->
+	
+	<!-- This is to run the test in IE browser.
+	
+	<test name="IE" preserve-order="true">
+		<parameter name="browser" value="iexplore" />
+		<classes>
+			<class name="com.custommade.tests.LoginRegistration" />
+			<class name="com.custommade.tests.StartAProject" />
+			<class name="com.custommade.tests.GetItCustomMade" />
+			<class name="com.custommade.tests.WorkWithThisMaker" />
+		</classes>
+	</test>
+	
+	This is to run the test in safari browser. -->
+		<!-- <parameter name="os" value="Mac 10.8" /> -->
+	
+	<!-- <test name="Safari" preserve-order="true">
+		<parameter name="browser" value="safari" />
+		<parameter name="username" value="jobyrajkr" />
+		<parameter name="key" value="5c1d73ae-01bd-4f3b-aa7b-05f8975990b1" />
+		<parameter name="os" value="Windows 2008" />
+		<parameter name="browserVersion" value="5" />
+		<parameter name="sauceLabsUrl" value="@ondemand.saucelabs.com:80/wd/hub" />
+		<parameter name="name" value="CM Regression Suite (Safari)" />
+		<classes>
+			<class name="com.custommade.tests.LoginRegistration" />
+			<class name="com.custommade.tests.StartAProject" />
+			<class name="com.custommade.tests.GetItCustomMade" />
+			<class name="com.custommade.tests.WorkWithThisMaker" />
+		</classes>
+	</test> -->
+	</tests>
+</suite>
